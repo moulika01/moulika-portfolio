@@ -8,10 +8,17 @@
 
 <title>Moulika Portfolio</title>
 
-<style>
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-/* GOOGLE FONT */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
 
 /* RESET */
 *{
@@ -20,10 +27,11 @@
   box-sizing:border-box;
   font-family:'Poppins',sans-serif;
   scroll-behavior:smooth;
+  transition:all 0.3s ease;
 }
 
 body{
-  background:#f8fafc;
+  background:#dbeafe;
   color:#0f172a;
   overflow-x:hidden;
 }
@@ -35,12 +43,10 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:20px 10%;
-  background:rgba(15,23,42,0.95);
-  backdrop-filter:blur(10px);
+  background:#0f172a;
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 4px 20px rgba(0,0,0,0.08);
 }
 
 .logo{
@@ -60,37 +66,21 @@ nav ul li a{
   color:white;
   font-size:17px;
   font-weight:500;
-  transition:0.3s;
-  position:relative;
 }
 
 nav ul li a:hover{
   color:#38bdf8;
+  transform:translateY(-3px);
 }
 
-nav ul li a::after{
-  content:'';
-  position:absolute;
-  width:0;
-  height:2px;
-  background:#38bdf8;
-  left:0;
-  bottom:-5px;
-  transition:0.3s;
-}
-
-nav ul li a:hover::after{
-  width:100%;
-}
-
-/* HERO SECTION */
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:100px 10%;
-  background:linear-gradient(to right,#dbeafe,#f8fafc);
+  background:linear-gradient(to right,#bfdbfe,#dbeafe);
   gap:70px;
 }
 
@@ -101,362 +91,277 @@ nav ul li a:hover::after{
 .hero-content h3{
   color:#38bdf8;
   font-size:24px;
-  margin-bottom:10px;
 }
 
 .hero-content h1{
   font-size:70px;
-  margin-bottom:15px;
-  background:linear-gradient(to right,#2563eb,#38bdf8);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:#0f172a;
 }
 
 .hero-content h2{
-  font-size:30px;
-  font-weight:500;
-  color:#475569;
-  margin-bottom:20px;
+  color:#2563eb;
+  margin:15px 0;
 }
 
 .hero-content p{
-  font-size:18px;
   line-height:1.9;
-  color:#475569;
-  max-width:650px;
+  color:#334155;
 }
 
-/* BUTTONS */
-.hero-buttons{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-top:25px;
-  margin-bottom:35px;
-}
-
+/* BUTTON */
 .btn{
-  padding:15px 34px;
+  display:inline-block;
+  margin-top:25px;
+  padding:15px 30px;
+  background:#38bdf8;
+  color:white;
   text-decoration:none;
   border-radius:50px;
-  font-weight:600;
-  transition:0.4s ease;
-  font-size:15px;
-  letter-spacing:0.5px;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
+  font-weight:500;
 }
 
 .btn:hover{
-  transform:translateY(-5px);
+  background:#0ea5e9;
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 10px 25px rgba(14,165,233,0.4);
 }
 
-.btn-primary{
-  background:linear-gradient(to right,#2563eb,#38bdf8);
+/* SOCIAL */
+.social-icons{
+  display:flex;
+  gap:18px;
+  margin-top:30px;
+}
+
+.social-icons a{
+  width:55px;
+  height:55px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  color:#2563eb;
+  font-size:22px;
+}
+
+.social-icons a:hover{
+  background:#38bdf8;
   color:white;
-  box-shadow:0 8px 20px rgba(37,99,235,0.3);
-}
-
-.btn-primary:hover{
-  box-shadow:0 10px 30px rgba(37,99,235,0.5);
+  transform:translateY(-10px) rotate(8deg) scale(1.1);
+  box-shadow:0 10px 20px rgba(56,189,248,0.5);
 }
 
 /* HERO IMAGE */
-.hero-image{
-  flex:1;
-  display:flex;
-  justify-content:center;
-}
-
 .hero-image img{
-  width:360px;
-  height:360px;
-  object-fit:cover;
+  width:350px;
+  height:350px;
   border-radius:50%;
+  object-fit:cover;
   border:8px solid white;
   box-shadow:0 0 40px rgba(56,189,248,0.45);
-  transition:0.5s ease;
-  animation:float 4s ease-in-out infinite;
+  animation:floatImage 4s ease-in-out infinite;
 }
 
 .hero-image img:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 60px rgba(56,189,248,0.8);
+  transform:scale(1.05) rotate(2deg);
+  box-shadow:0 0 60px rgba(56,189,248,0.7);
 }
 
-@keyframes float{
-
+@keyframes floatImage{
   0%{
     transform:translateY(0px);
   }
-
   50%{
-    transform:translateY(-12px);
+    transform:translateY(-15px);
   }
-
   100%{
     transform:translateY(0px);
   }
-
 }
 
-/* SECTION COMMON */
+/* SECTION */
 section{
   padding:100px 10%;
-  animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
 }
 
 .section-title{
   text-align:center;
   font-size:46px;
-  color:#0f172a;
   margin-bottom:70px;
-  position:relative;
+  color:#0f172a;
 }
 
-.section-title::after{
-  content:'';
-  width:90px;
-  height:4px;
-  background:linear-gradient(to right,#2563eb,#38bdf8);
-  position:absolute;
-  left:50%;
-  bottom:-15px;
-  transform:translateX(-50%);
-  border-radius:10px;
+.section-title:hover{
+  color:#2563eb;
+  letter-spacing:2px;
 }
 
 /* EDUCATION */
 .education-timeline{
-  position:relative;
-  max-width:800px;
-  margin:auto;
-  padding-left:40px;
   border-left:4px solid #38bdf8;
-}
-
-.timeline-item{
-  position:relative;
-  margin-bottom:50px;
-}
-
-.timeline-dot{
-  position:absolute;
-  left:-52px;
-  top:10px;
-  width:22px;
-  height:22px;
-  background:#38bdf8;
-  border-radius:50%;
-  border:4px solid white;
-  box-shadow:0 0 15px rgba(56,189,248,0.5);
+  padding-left:40px;
 }
 
 .timeline-content{
-  background:white;
+  background:#eff6ff;
   padding:25px;
   border-radius:20px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  margin-bottom:30px;
+  cursor:pointer;
 }
 
-.timeline-content span{
-  color:#38bdf8;
-  font-weight:600;
-  font-size:15px;
-}
-
-.timeline-content h3{
-  margin:10px 0;
-  color:#0f172a;
-  font-size:24px;
-}
-
-.timeline-content p{
-  color:#475569;
-  line-height:1.8;
+.timeline-content:hover{
+  transform:translateY(-12px);
+  box-shadow:0 15px 35px rgba(37,99,235,0.2);
+  background:#dbeafe;
 }
 
 /* SKILLS */
 .skills-main{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:35px;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
 }
 
 .skills-box{
-  background:white;
+  background:#eff6ff;
   padding:35px;
-  border-radius:24px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.skills-box:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 35px rgba(37,99,235,0.2);
 }
 
 .skills-box h3{
   text-align:center;
-  margin-bottom:25px;
+  margin-bottom:20px;
   color:#2563eb;
-  font-size:28px;
 }
 
 .skills-container{
   display:flex;
   flex-wrap:wrap;
   gap:15px;
-  justify-content:center;
 }
 
 .skill{
-  background:white;
-  color:#0f172a;
-  padding:14px 24px;
-  border-radius:14px;
-  font-weight:600;
-  transition:0.4s;
-  border:1px solid #e2e8f0;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  background:#38bdf8;
+  color:white;
+  padding:12px 20px;
+  border-radius:12px;
+  cursor:pointer;
 }
 
 .skill:hover{
-  background:linear-gradient(to right,#2563eb,#38bdf8);
-  color:white;
-  transform:translateY(-5px);
-  box-shadow:0 10px 20px rgba(37,99,235,0.25);
+  transform:scale(1.1);
+  background:#2563eb;
 }
 
 /* PROJECTS */
 .projects-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:30px;
 }
 
 .project-card{
-  background:white;
+  background:#eff6ff;
   padding:35px;
-  border-radius:24px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);
-  transition:0.5s ease;
-  border:1px solid #e2e8f0;
+  border-radius:20px;
+  cursor:pointer;
 }
 
 .project-card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 20px 40px rgba(37,99,235,0.18);
+  transform:translateY(-12px) scale(1.02);
+  box-shadow:0 15px 35px rgba(37,99,235,0.25);
+  background:#dbeafe;
 }
 
 .project-card h3{
   margin-bottom:15px;
-  color:#0f172a;
-}
-
-.project-card p{
-  color:#475569;
-  line-height:1.8;
-  margin-bottom:15px;
 }
 
 .project-card span{
-  color:#38bdf8;
-  font-size:14px;
+  color:#2563eb;
   font-weight:600;
 }
 
 /* CERTIFICATIONS */
 .certifications{
-  background:#f1f5f9;
+  background:#bfdbfe;
 }
 
 .certifications-wrapper{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
-  gap:40px;
-}
-
-.certification-box{
-  background:white;
-  padding:35px;
-  border-radius:25px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.08);
-  transition:0.4s;
-}
-
-.certification-box:hover{
-  transform:translateY(-8px);
+  display:flex;
+  flex-direction:column;
+  gap:60px;
 }
 
 .box-title{
-  text-align:center;
   margin-bottom:30px;
-  color:#2563eb;
-  font-size:28px;
+  color:#0f172a;
+  font-size:30px;
+  text-align:center;
 }
 
 .cert-grid{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
 }
 
 .cert-card{
-  background:#f8fafc;
-  padding:25px;
-  border-radius:18px;
-  text-align:left;
-  box-shadow:0 4px 12px rgba(0,0,0,0.06);
-  transition:0.4s;
+  background:#eff6ff;
+  padding:30px;
+  border-radius:20px;
   text-decoration:none;
   color:#0f172a;
-  display:block;
-  border-left:5px solid #38bdf8;
-}
+  min-height:180px;
 
-.cert-card:hover{
-  transform:translateX(8px);
-  box-shadow:0 10px 25px rgba(56,189,248,0.25);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 .cert-card h3{
-  margin-bottom:12px;
-  color:#0f172a;
-  font-size:20px;
+  color:#2563eb;
+  margin-bottom:15px;
+  font-size:22px;
 }
 
 .cert-card p{
-  color:#475569;
   line-height:1.7;
-  font-size:15px;
+  color:#334155;
+}
+
+.cert-card:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:0 15px 35px rgba(37,99,235,0.25);
+  background:white;
 }
 
 /* CONTACT */
 .contact-box{
-  max-width:700px;
-  margin:auto;
-  background:white;
+  background:#eff6ff;
   padding:40px;
   border-radius:20px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.08);
   text-align:center;
-  line-height:2;
+}
+
+.contact-box:hover{
+  transform:scale(1.02);
+  box-shadow:0 15px 35px rgba(37,99,235,0.2);
 }
 
 .contact-box p{
   margin:15px 0;
-  font-size:18px;
-  color:#475569;
 }
 
 /* FOOTER */
@@ -465,9 +370,6 @@ footer{
   color:white;
   text-align:center;
   padding:30px;
-  margin-top:50px;
-  font-size:15px;
-  letter-spacing:0.5px;
 }
 
 /* RESPONSIVE */
@@ -476,14 +378,6 @@ footer{
   .hero{
     flex-direction:column-reverse;
     text-align:center;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .hero-content h1{
-    font-size:52px;
   }
 
   nav{
@@ -504,6 +398,7 @@ footer{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -511,367 +406,272 @@ footer{
 <!-- NAVBAR -->
 <nav>
 
-  <div class="logo">My Portfolio</div>
+<div class="logo">My Portfolio</div>
 
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <h3>Hello, I'm</h3>
+<h3>Hello, I'm</h3>
 
-    <h1>Moulika Bodla</h1>
+<h1>Moulika Bodla</h1>
 
-    <h2>Data Analyst & Frontend Developer</h2>
+<h2>Data Analyst & Frontend Developer</h2>
 
-    <div class="hero-buttons">
+<p>
+Aspiring Data Analyst and Frontend Developer passionate about
+building responsive web applications and transforming data
+into meaningful insights using modern technologies.
+</p>
 
-      <a href="Moulikab.pdf"
-         download="Moulika_Resume.pdf"
-         class="btn btn-primary">
+<a href="Moulikab.pdf" download class="btn">
+<i class="fa-solid fa-download"></i>
+Download Resume
+</a>
 
-         Download Resume
+<div class="social-icons">
 
-      </a>
+<a href="https://github.com/moulika01" target="_blank">
+<i class="fab fa-github"></i>
+</a>
 
-      <a href="https://www.linkedin.com/in/bodla-moulika-702ab1338"
-         target="_blank"
-         class="btn btn-primary">
+<a href="https://www.linkedin.com/in/bodla-moulika-702ab1338" target="_blank">
+<i class="fab fa-linkedin-in"></i>
+</a>
 
-         LinkedIn Profile
+<a href="mailto:bodlamoulika@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+</a>
 
-      </a>
+</div>
 
-    </div>
+</div>
 
-    <p>
-      Aspiring Data Analyst and Frontend Developer passionate about
-      building responsive web applications and transforming data
-      into meaningful insights using modern technologies.
-      Enthusiastic about continuous learning and solving real-world problems.
-    </p>
-
-  </div>
-
-  <div class="hero-image">
-
-    <img src="modi2.jpg" alt="Moulika">
-
-  </div>
+<div class="hero-image">
+<img src="modi2.jpg" alt="Moulika">
+</div>
 
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
 
-  <h2 class="section-title">Education</h2>
+<h2 class="section-title">Education</h2>
 
-  <div class="education-timeline">
+<div class="education-timeline">
 
-    <div class="timeline-item">
+<div class="timeline-content">
+<h3>SSC</h3>
+<p>CGPA: 10 / 10</p>
+<p>Maharshi Vidyalaya</p>
+</div>
 
-      <div class="timeline-dot"></div>
+<div class="timeline-content">
+<h3>Intermediate (MPC)</h3>
+<p>CGPA: 8.3 / 10</p>
+<p>Sri Chaitanya Junior College</p>
+</div>
 
-      <div class="timeline-content">
+<div class="timeline-content">
+<h3>B.Tech - Information Technology</h3>
+<p>CGPA: 8.4 / 10</p>
+<p>Sri Devi Women’s Engineering College</p>
+</div>
 
-        <span>2019 - 2020</span>
-
-        <h3>SSC</h3>
-
-        <p><b>CGPA:</b> 10 / 10</p>
-
-        <p>Maharshi Vidyalaya</p>
-
-      </div>
-
-    </div>
-
-    <div class="timeline-item">
-
-      <div class="timeline-dot"></div>
-
-      <div class="timeline-content">
-
-        <span>2020 - 2022</span>
-
-        <h3>Intermediate (MPC)</h3>
-
-        <p><b>CGPA:</b> 8.3 / 10</p>
-
-        <p>Sri Chaitanya Junior College</p>
-
-      </div>
-
-    </div>
-
-    <div class="timeline-item">
-
-      <div class="timeline-dot"></div>
-
-      <div class="timeline-content">
-
-        <span>2022 - 2026</span>
-
-        <h3>B.Tech - Information Technology</h3>
-
-        <p><b>CGPA:</b> 8.4 / 10</p>
-
-        <p>Sri Devi Women’s Engineering College</p>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
 
-  <h2 class="section-title">Skills</h2>
+<h2 class="section-title">Skills</h2>
 
-  <div class="skills-main">
+<div class="skills-main">
 
-    <div class="skills-box">
+<div class="skills-box">
 
-      <h3>Technical Skills</h3>
+<h3>Technical Skills</h3>
 
-      <div class="skills-container">
+<div class="skills-container">
 
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">Python</div>
-        <div class="skill">SQL</div>
-        <div class="skill">Power BI</div>
-        <div class="skill">Excel</div>
-        <div class="skill">MySQL</div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+<div class="skill">Python</div>
+<div class="skill">SQL</div>
+<div class="skill">Power BI</div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-    <div class="skills-box">
+<div class="skills-box">
 
-      <h3>Soft Skills</h3>
+<h3>Soft Skills</h3>
 
-      <div class="skills-container">
+<div class="skills-container">
 
-        <div class="skill">Communication</div>
-        <div class="skill">Team Work</div>
-        <div class="skill">Problem Solving</div>
-        <div class="skill">Leadership</div>
-        <div class="skill">Creativity</div>
-        <div class="skill">Time Management</div>
+<div class="skill">Communication</div>
+<div class="skill">Leadership</div>
+<div class="skill">Problem Solving</div>
+<div class="skill">Team Work</div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
 
-  <h2 class="section-title">Projects</h2>
+<h2 class="section-title">Projects</h2>
 
-  <div class="projects-grid">
+<div class="projects-grid">
 
-    <div class="project-card">
+<div class="project-card">
 
-      <h3>Audio to Sign Language Translator</h3>
+<h3>Audio to Sign Language Translator</h3>
 
-      <p>
-        Developed a Python-based system that converts spoken
-        audio into sign language gestures using NLP and
-        speech recognition technology.
-      </p>
+<p>
+Developed a Python-based system that converts spoken audio
+into sign language gestures.
+</p>
 
-      <span>Python • NLP • Machine Learning</span>
+<span>Python • NLP • Machine Learning</span>
 
-      <br><br>
+</div>
 
-      <a href="#" class="btn btn-primary">
-        View Project
-      </a>
+<div class="project-card">
 
-    </div>
+<h3>Secure Data Deduplication</h3>
 
-    <div class="project-card">
+<p>
+Created a cloud-based secure storage system using hashing
+and dynamic access control.
+</p>
 
-      <h3>Secure Data Deduplication</h3>
+<span>Python • MySQL • Cloud</span>
 
-      <p>
-        Created a cloud-based secure storage system with
-        hashing techniques and dynamic access control
-        for efficient file management.
-      </p>
+</div>
 
-      <span>Python • MySQL • Cloud Computing</span>
-
-      <br><br>
-
-      <a href="#" class="btn btn-primary">
-        View Project
-      </a>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 <!-- CERTIFICATIONS -->
 <section class="certifications" id="certifications">
 
-  <h2 class="section-title">
-    Certifications & Activities
-  </h2>
+<h2 class="section-title">Certifications & Achievements</h2>
 
-  <div class="certifications-wrapper">
+<div class="certifications-wrapper">
 
-    <div class="certification-box">
+<!-- TECHNICAL CERTIFICATIONS -->
+<div>
 
-      <h2 class="box-title">
-        Technical Certifications
-      </h2>
+<h2 class="box-title">Technical Certifications</h2>
 
-      <div class="cert-grid">
+<div class="cert-grid">
 
-        <a href="python-certificate.jpg"
-           target="_blank"
-           class="cert-card">
+<a href="WhatsApp Image 2026-05-21 at 15.51.55 (1).pdf" target="_blank" class="cert-card">
+<h3><i class="fa-brands fa-python"></i> Python Internship</h3>
+<p>Completed Python internship with real-time projects.</p>
+</a>
 
-          <h3>Python Programming Internship</h3>
+<a href="./javascript.pdf" target="_blank" class="cert-card">
+<h3><i class="fa-brands fa-js"></i> JavaScript Certification</h3>
+<p>Learned JavaScript and responsive design concepts.</p>
+</a>
 
-          <p>
-            Completed internship focused on Python,
-            problem solving and real-time projects.
-          </p>
+<a href="./powerbi.pdf" target="_blank" class="cert-card">
+<h3><i class="fa-solid fa-chart-column"></i> Power BI Certification</h3>
+<p>Created dashboards and reports using Power BI.</p>
+</a>
 
-        </a>
+<a href="./1-f86c7e6f-ffa9-46e7-a93d-5a7531a60321 (1).pdf" target="_blank" class="cert-card">
+<h3><i class="fa-brands fa-python"></i> Python 1</h3>
+<p>Learned Python basics and syntax.</p>
+</a>
 
-        <a href="javascript-certificate.jpg"
-           target="_blank"
-           class="cert-card">
+<a href="./1-e196d68a-8e72-4453-984d-20a09a53309d (1) (1).pdf" target="_blank" class="cert-card">
+<h3><i class="fa-brands fa-python"></i> Python 2</h3>
+<p>Learned advanced Python concepts.</p>
+</a>
 
-          <h3>Certified JavaScript Course</h3>
+</div>
 
-          <p>
-            Learned JavaScript concepts including DOM,
-            events and responsive web development.
-          </p>
+</div>
 
-        </a>
+<!-- ACTIVITIES -->
+<div>
 
-        <a href="powerbi-certificate.jpg"
-           target="_blank"
-           class="cert-card">
+<h2 class="box-title">Activities & Participation</h2>
 
-          <h3>Power BI Data Analytics</h3>
+<div class="cert-grid">
 
-          <p>
-            Built dashboards and reports using Power BI
-            for business analytics.
-          </p>
+<a href="code_crunch.jpg" target="_blank" class="cert-card">
+<h3><i class="fa-solid fa-code"></i> CodeCrunch</h3>
+<p>Participated in coding competitions.</p>
+</a>
 
-        </a>
+<a href="volunteer.jpg" target="_blank" class="cert-card">
+<h3><i class="fa-solid fa-users"></i> Graduation Day Volunteer</h3>
+<p>Organized and coordinated graduation events.</p>
+</a>
 
-      </div>
+<a href="editopia.jpg" target="_blank" class="cert-card">
+<h3><i class="fa-solid fa-camera"></i> Editopia Competition</h3>
+<p>Participated in editing and photography events.</p>
+</a>
 
-    </div>
+<a href="chatGPT.jpg" target="_blank" class="cert-card">
+<h3><i class="fa-solid fa-robot"></i> ChatGPT & AI Tools</h3>
+<p>Learned AI tools for healthcare professionals.</p>
+</a>
 
-    <div class="certification-box">
+</div>
 
-      <h2 class="box-title">
-        Extra Curricular Activities
-      </h2>
+</div>
 
-      <div class="cert-grid">
-
-        <div class="cert-card">
-
-          <h3>CodeCrunch Coding Competition</h3>
-
-          <p>
-            Participated in DSA and problem-solving
-            coding competitions.
-          </p>
-
-        </div>
-
-        <div class="cert-card">
-
-          <h3>Graduation Day Event Volunteer</h3>
-
-          <p>
-            Assisted in organizing and managing
-            graduation ceremony activities.
-          </p>
-
-        </div>
-
-        <div class="cert-card">
-
-          <h3>Editopia Competition</h3>
-
-          <p>
-            Participated in creative editing,
-            poster design and photography events.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
 
-  <h2 class="section-title">Contact Me</h2>
+<h2 class="section-title">Contact Me</h2>
 
-  <div class="contact-box">
+<div class="contact-box">
 
-    <p><b>Name:</b> Moulika Bodla</p>
+<p><b>Name:</b> Moulika Bodla</p>
+<p><b>Email:</b> bodlamoulika@gmail.com</p>
+<p><b>Phone:</b> 9573735937</p>
+<p><b>Location:</b> Telangana, India</p>
 
-    <p><b>Email:</b> bodlamoulika@gmail.com</p>
-
-    <p><b>Phone:</b> 9573735937</p>
-
-    <p><b>Location:</b> Telangana, India</p>
-
-    <p>
-      <b>LinkedIn:</b>
-      linkedin.com/in/bodla-moulika-702ab1338
-    </p>
-
-  </div>
+</div>
 
 </section>
 
 <!-- FOOTER -->
 <footer>
 
-  © 2026 Moulika Portfolio | Designed with HTML & CSS
+© 2026 Moulika Portfolio | Designed with HTML & CSS
 
 </footer>
 
